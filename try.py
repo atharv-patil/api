@@ -3,11 +3,9 @@ from flask import Flask, request, jsonify, Response
 import pandas as pd
 import numpy as np
 import pickle
-import json
-import os
 from pymongo import MongoClient
 
-connection_string = f"mongodb+srv://woqalora:OMutKQ6FUT5g6jVa@project.bvqkqfy.mongodb.net/?retryWrites=true&w=majority"
+connection_string = "mongodb+srv://woqalora:OMutKQ6FUT5g6jVa@project.bvqkqfy.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(connection_string)
 
 user_ratings_db = client.books.user_ratings
@@ -197,8 +195,8 @@ def delete():
 
 
 
-if __name__ == "__main__":
-    try:
-        app.run(debug=True, port=5000)
-    except Exception as e:
-        print(f"Error: {e}")
+# if __name__ == "__main__":
+#     try:
+app.run(host="0.0.0.0", port=5000)
+    # except Exception as e:
+    #     print(f"Error: {e}")
